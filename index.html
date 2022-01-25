@@ -33,9 +33,31 @@
       <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+	   <script>
+    $(document).ready(function(){
+        $("#myModal").modal('show');
+    });
+</script>
    </head>
    <!-- body -->
    <body class="main-layout">
+	   <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Try our beta site</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>We will be upgrading our site soon. Till then, try our new site!</p>
+                <form action="http://recordrocks.ga">
+                    
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 	<!-- header section start -->
 	<div class="header_section">
 		<div class="container">
