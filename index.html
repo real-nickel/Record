@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Verification</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #verification-container {
+            text-align: center;
+        }
+
+        #code-input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        #verify-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #result-message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="verification-container">
+        <h2>Code Verification</h2>
+        <p>Enter the code below:</p>
+        <div id="code-display"></div>
+        <input type="text" id="code-input" placeholder="Enter the code">
+        <button id="verify-button" onclick="verifyCode()">Verify</button>
+        <div id="result-message"></div>
+    </div>
+
+    <script>
+        // Function to generate a random code
+        function generateCode() {
+            const length = 6;
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+
+        // Function to display the generated code
+        function displayCode() {
+            const codeDisplay = document.getElementById('code-display');
+            const generatedCode = generateCode();
+            codeDisplay.innerText = generatedCode;
+            return generatedCode;
+        }
+
+        // Function to verify the entered code
+        function verifyCode() {
+            const userCode = document.getElementById('code-input').value;
+            const generatedCode = displayCode();
+            const resultMessage = document.getElementById('result-message');
+
+            if (userCode === generatedCode) {
+                resultMessage.innerText = 'Code is correct!';
+                resultMessage.className = 'success';
+            } else {
+                resultMessage.innerText = 'Incorrect code. Please try again.';
+                resultMessage.className = 'error';
+            }
+        }
+
+        // Display the initial code on page load
+        window.onload = displayCode;
+    </script>
+
+</body>
+</html>
