@@ -42,6 +42,10 @@
         .error {
             color: red;
         }
+
+        #hidden-code {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -49,7 +53,7 @@
     <div id="verification-container">
         <h2>Code Verification</h2>
         <p>Enter the static code below:</p>
-        <div id="code-display">STATICCODE</div>
+        <div id="hidden-code">STATICCODE</div>
         <input type="text" id="code-input" placeholder="Enter the code">
         <button id="verify-button" onclick="verifyCode()">Verify</button>
         <div id="result-message"></div>
@@ -65,6 +69,9 @@
             if (userCode === staticCode) {
                 resultMessage.innerText = 'Code is correct!';
                 resultMessage.className = 'success';
+
+                // Redirect to the desired website after successful verification
+                window.location.href = 'https://example.com'; // Replace with your desired website URL
             } else {
                 resultMessage.innerText = 'Incorrect code. Please try again.';
                 resultMessage.className = 'error';
