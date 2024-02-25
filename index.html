@@ -63,7 +63,7 @@
         // Function to verify the entered code
         function verifyCode() {
             const userCode = document.getElementById('code-input').value;
-            const staticCode = 'STATICCODE';
+            const staticCode = 'vynerscomputing';
             const resultMessage = document.getElementById('result-message');
 
             if (userCode === staticCode) {
@@ -71,7 +71,7 @@
                 resultMessage.className = 'success';
 
                 // Redirect to the desired website after successful verification
-                window.location.href = 'https://example.com'; // Replace with your desired website URL
+                window.location.href = 'home'; // Replace with your desired website URL
             } else {
                 resultMessage.innerText = 'Incorrect code. Please try again.';
                 resultMessage.className = 'error';
