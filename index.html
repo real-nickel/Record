@@ -48,40 +48,21 @@
 
     <div id="verification-container">
         <h2>Code Verification</h2>
-        <p>Enter the code below:</p>
-        <div id="code-display"></div>
+        <p>Enter the static code below:</p>
+        <div id="code-display">STATICCODE</div>
         <input type="text" id="code-input" placeholder="Enter the code">
         <button id="verify-button" onclick="verifyCode()">Verify</button>
         <div id="result-message"></div>
     </div>
 
     <script>
-        // Function to generate a random code
-        function generateCode() {
-            const length = 6;
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            let result = '';
-            for (let i = 0; i < length; i++) {
-                result += characters.charAt(Math.floor(Math.random() * characters.length));
-            }
-            return result;
-        }
-
-        // Function to display the generated code
-        function displayCode() {
-            const codeDisplay = document.getElementById('code-display');
-            const generatedCode = generateCode();
-            codeDisplay.innerText = generatedCode;
-            return generatedCode;
-        }
-
         // Function to verify the entered code
         function verifyCode() {
             const userCode = document.getElementById('code-input').value;
-            const generatedCode = displayCode();
+            const staticCode = 'STATICCODE';
             const resultMessage = document.getElementById('result-message');
 
-            if (userCode === generatedCode) {
+            if (userCode === staticCode) {
                 resultMessage.innerText = 'Code is correct!';
                 resultMessage.className = 'success';
             } else {
@@ -89,9 +70,6 @@
                 resultMessage.className = 'error';
             }
         }
-
-        // Display the initial code on page load
-        window.onload = displayCode;
     </script>
 
 </body>
